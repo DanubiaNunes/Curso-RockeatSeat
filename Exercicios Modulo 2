@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTC-8">
+        <title>Exercicios Modulo 2</title>
+    </head>
+    <body>
+        <div><b>Exercicio 1 e 2</b></div><br/>
+        <div id="exer1e2">
+            <button id="exercicio1" onclick="criaQuadrado()">Exercicio 1</button>
+            <div id="quadrados"></div>
+            <br/>
+        </div>
+        <div id="exer3"><b>Exercicio 3 </b></div><br/>
+        <div>
+            <ul id="listaExer3"></ul>
+        </div>
+        <div ><b>Exercicio 4</b></div><br/>
+        <div id="exer4">
+            <input type="text" name="nome">
+            <button onClick="adicionar()">Adicionar Nome</button>
+            <ul id="listaExer4"></ul>
+        </div>         
+
+        <script>
+            
+            //Exercicio 1 e 2
+            var elementoQuadrado = document.getElementById('quadrados');
+            
+            function criaQuadrado(){
+                var quadrado = document.createElement('div');
+
+                quadrado.style.width = 100;
+                quadrado.style.height = 100;
+                quadrado.style.backgroundColor = '#f00';
+
+                elementoQuadrado.appendChild(quadrado);
+
+                quadrado.onmouseover = function(){
+                    //quadrado.style.backgroundColor = getRandomColor();// assim fica cores aleatorias
+                    quadrado.style.backgroundColor = newColor; // assim fica cor unica
+                };
+            }
+
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+            var newColor = getRandomColor(); 
+            
+            //exercicio 3
+            var nomes = ["Diego", "Gabriel", "Lucas"];
+            var lista = document.querySelector('ul');
+            //se quiser pegar por id, só colocar document.queryElementById('exercicio3')
+
+            for( cadaNome of nomes){
+                var liElement = document.createElement('li');
+                var txtNome = document.createTextNode(cadaNome);
+
+                liElement.appendChild(txtNome);
+                lista.appendChild(liElement);
+
+            }
+            var inputNome = document.querySelector('input');
+            var ulElement = document.getElementById('listaExer4');
+
+            function listaNomes(nomeNovo){
+                
+                var liElement2 = document.createElement('li');
+                var txtNome2 = document.createTextNode(nomeNovo);
+
+                liElement2.appendChild(txtNome2);
+                ulElement.appendChild(liElement2);
+            }
+            
+            //exercicio 4
+            function adicionar(){
+                if(inputNome.value==""){
+                    alert("ops.. não aceita sem nome")
+                } else{
+                    listaNomes(inputNome.value);
+                    inputNome.value = "";
+                }
+             }
+            for( cadaNome2 of nomes){
+                listaNomes(cadaNome2);
+            }
+        </script>
+    </body>
+</html>
