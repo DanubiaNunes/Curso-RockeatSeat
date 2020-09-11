@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Exercicios Modulo 1</title>
+    </head>
+    <body>
+        <script>
+            //Exercicio 01
+           var endereco = {
+                rua: "Rua dos pinheiros",
+                numero: 1293,
+                bairro: "centro",
+                cidade: "são paulo",
+                uf:"SP"
+            }
+            console.log("o usuario mora em " + endereco.cidade + "/" + endereco.uf + ", no bairro " + endereco.bairro + ", na rua " + endereco.rua + " com nº " + endereco.numero );
+            
+            // exercicio 2
+            function pares(x,y){
+               
+                while( x <  y){
+
+                    if( x % 2 == 0) {
+                        console.log(x);
+                    }
+                    x++;
+                }   
+            }
+            pares(32, 321);
+
+            //exercicio 3
+            function temHabilidades(skils){
+                var retorno = skills.indexOf("JS") >=0 ? true : false;
+                console.log(retorno);
+            }
+            var skills = ["JS","ReactJS","React Native"];
+            temHabilidades(skills);
+
+            //Exercicio 4
+
+            function experiencia(anos){
+                if( anos <= 1){
+                    console.log("Iniciante");
+                }else if(anos <= 3 ){
+                    console.log("Intermediario");
+                }else if(anos<=6){
+                    console.log("Avançado");
+                }else{
+                    console.log("Jedi Master");
+                }
+            }
+
+            var anosEstudo = 7;
+            experiencia(anosEstudo);
+
+            //Exercicio 5
+            var usuarios = [
+                {
+                    nome:"Diego",
+                    habilidades:["JS","ReactJS","Redux"]
+                },
+                {
+                    nome:"Gabriel",
+                    habilidades: ["VieJS", "Ruby on Rails", "Elixir"]
+                }
+            ];
+            function frase(usuarios){
+                for(usuario of usuarios){
+                    var retorno = "O " + usuario.nome + " possui as habilidades: " + usuario.habilidades.join(", ");
+                    console.log(retorno);
+                }
+                
+            }
+
+            frase(usuarios);
+
+
+
+
+
+            
+        </script>
+    </body>
+</html>
